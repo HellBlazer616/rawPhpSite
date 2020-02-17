@@ -64,7 +64,7 @@ class Database
     }
 
     // Execute the prepared statement
-    public function execute()
+    public function executeQuery()
     {
         return $this->statement->execute();
     }
@@ -72,14 +72,14 @@ class Database
     // Get result set as array of objects
     public function resultSet()
     {
-        $this->execute();
+        $this->executeQuery();
         return $this->statement->fetchAll(PDO::FETCH_OBJ);
     }
 
     // Get single record as object
     public function single()
     {
-        $this->execute();
+        $this->executeQuery();
         return $this->statement->fetch(PDO::FETCH_OBJ);
     }
 
